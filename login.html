@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login - LibSphere</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Admin Login Validation
+        function validateAdminLogin(event) {
+            event.preventDefault();
+            var username = document.getElementById("adminUsername").value;
+            var password = document.getElementById("adminPassword").value;
+
+            if (username === "admin77" && password === "gabh2024") {
+                window.location.href = "admin_dashboard.html"; // Redirect to Admin Dashboard
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+
+        // Student Login Validation (if needed)
+        function validateStudentLogin(event) {
+            event.preventDefault();
+            // Add logic for student login validation (e.g., match student credentials)
+            window.location.href = "student_dashboard.html"; // Redirect to Student Dashboard
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LibSphere</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="login-container">
+        <h2>Login</h2>
+        
+        <!-- Admin Login Form with Validation -->
+        <form onsubmit="validateAdminLogin(event)" id="adminLogin">
+            <input type="text" id="adminUsername" name="username" placeholder="Enter Username" value="admin77" required>
+            <input type="password" id="adminPassword" name="password" placeholder="Enter Password" required>
+            <input type="submit" value="Login as Admin">
+        </form>
+
+        <!-- Student Login Form -->
+        <form onsubmit="validateStudentLogin(event)" id="studentLogin">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="submit" value="Login as Student">
+        </form>
+
+        <!-- Sign Up Section -->
+        <div class="signup-section">
+            <h3>New to LibSphere?</h3>
+            <p>Sign up to get access to all resources available for students, educators, and researchers.</p>
+            <a href="signup.html" class="btn">Sign Up Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LibSphere | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

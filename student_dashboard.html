@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Dashboard - LibSphere</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to handle student sign out
+        function signOutStudent() {
+            // Simulate sign-out by redirecting to login page
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LibSphere</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html" onclick="signOutStudent()">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="student-dashboard">
+        <h2>Welcome Student!</h2>
+        <p>You have access to study materials, books, and other resources here.</p>
+        <!-- Add more student functionalities here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LibSphere | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

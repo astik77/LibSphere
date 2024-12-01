@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard - LibSphere</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to handle admin sign out
+        function signOutAdmin() {
+            // Simulate sign-out by redirecting to login page
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LibSphere</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html" onclick="signOutAdmin()">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="admin-dashboard">
+        <h2>Welcome Admin!</h2>
+        <p>You have full access to manage the content on the platform.</p>
+        <section class="admin-panel">
+            <h2>Admin Dashboard</h2>
+            <p>Manage your content here:</p>
+            <button class="btn">Add Notes (PDF)</button>
+            <button class="btn">Add Books (PDF)</button>
+            <button class="btn">Add Videos/Links</button>
+            <button class="btn">Approve Content</button>
+        </section>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LibSphere | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
