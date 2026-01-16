@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibSphere</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="glass-card login-box">
+            <h1>LibSphere</h1>
+            <p>Digital Knowledge Hub</p>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Enter Sphere</button>
+            <p class="small-text">New here? Just enter a username to Sign Up.</p>
+        </div>
+    </div>
+
+    <div id="app" class="hidden">
+        
+        <nav class="sidebar">
+            <div class="logo">LS.</div>
+            <ul>
+                <li onclick="showPage('home')" class="active"><i class="fas fa-home"></i></li>
+                <li onclick="showPage('notes')"><i class="fas fa-sticky-note"></i></li>
+                <li onclick="showPage('books')"><i class="fas fa-book"></i></li>
+                <li onclick="showPage('video')"><i class="fas fa-play-circle"></i></li>
+                <li onclick="showPage('chat')"><i class="fas fa-comments"></i></li>
+                <li id="admin-btn" onclick="showPage('admin')" class="hidden"><i class="fas fa-shield-alt"></i></li>
+            </ul>
+            <div class="logout" onclick="location.reload()"><i class="fas fa-sign-out-alt"></i></div>
+        </nav>
+
+        <main>
+            <header>
+                <h2 id="page-title">Home</h2>
+                <div class="user-profile">
+                    <span id="display-name">User</span>
+                    <div class="avatar"></div>
+                </div>
+            </header>
+
+            <section id="home-page">
+                <div class="hero glass-card">
+                    <h1>Welcome to LibSphere</h1>
+                    <p>Curated by <strong>Astik Saini</strong></p>
+                    <p>Access premium notes, lectures, and research material in a unified digital ecosystem.</p>
+                </div>
+                <button class="action-btn" onclick="openUploadModal()">+ Upload Content</button>
+            </section>
+
+            <section id="content-grid" class="grid-container hidden"></section>
+
+            <section id="chat-page" class="hidden">
+                <div class="chat-container glass-card">
+                    <div id="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="msg-input" placeholder="Type a doubt...">
+                        <label for="img-upload" class="icon-btn"><i class="fas fa-image"></i></label>
+                        <input type="file" id="img-upload" hidden accept="image/*">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+                <div id="mod-queue" class="hidden glass-card">
+                    <h3>Moderation Queue</h3>
+                    <div id="mod-list"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="upload-modal" class="modal hidden">
+        <div class="glass-card modal-content">
+            <h3>Upload Resource</h3>
+            <input type="text" id="up-title" placeholder="Title">
+            <input type="text" id="up-link" placeholder="Drive/YouTube Link">
+            <select id="up-type">
+                <option value="note">Note (PDF)</option>
+                <option value="book">Book (PDF)</option>
+                <option value="video">Video Lecture</option>
+            </select>
+            <button onclick="submitUpload()">Submit</button>
+            <button class="close-btn" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
